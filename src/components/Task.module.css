@@ -1,0 +1,57 @@
+
+.task {
+
+	border-radius: 10px;
+	display: flex;
+	width: 100%;
+	box-sizing: border-box;
+	margin-bottom: 25px;
+}
+
+.task_completed {
+	background-color: #42e3bd;
+	background-image: url('./ZZZ-check-mark.png');
+	border-radius: 10px;
+	background-size: cover;
+	min-width: 64px;
+	min-height: 64px;
+	font-size: 0px;
+}
+.task_text {
+	width: 100%;
+	border: 1px solid #83b4eb;
+	border-radius: 10px;
+	font-size: 40px;
+	padding-left: 5px;
+}
+.task_delete {
+	background-color: #eb3b64;
+	background-image: url('./ZZZ-trash.png');
+	background-size: cover;
+	border-radius: 10px;
+	min-width: 64px;
+	min-height: 64px;
+	font-size: 0px;
+}
+
+
+.finish {
+	background-color: #ccc;
+	color: #979fa1;
+}
+
+
+@media only screen and (max-device-width: 1280px){
+	.task_text {
+		font-size: 20px;
+	}
+	.task_completed {
+		min-width: 32px;
+		min-height: 32px;
+	}
+	.task_delete {
+		min-width: 32px;
+		min-height: 32px;
+	}
+	
+}

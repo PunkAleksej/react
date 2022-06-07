@@ -1,0 +1,70 @@
+
+.container {
+	max-width: 1000px;
+	width: 100%;
+	margin: 0px auto;
+	border: 1px solid #83b4eb;
+	border-radius: 10px;
+	padding: 25px;
+	box-sizing: border-box;
+}
+
+
+
+.list__task {
+
+	border-radius: 10px;
+	display: flex;
+	width: 100%;
+	box-sizing: border-box;
+	margin-bottom: 25px;
+}
+
+.list_task_completed {
+	background-color: #42e3bd;
+	background-image: url('ZZZ-check-mark.png');
+	border-radius: 10px;
+	background-size: cover;
+	min-width: 64px;
+	min-height: 64px;
+
+
+}
+.list__task__text {
+	width: 100%;
+	border: 1px solid #83b4eb;
+	border-radius: 10px;
+	font-size: 40px;
+	padding-left: 5px;
+}
+
+
+.add {
+	min-width: 240px;
+	font-size: 40px;
+	background-image: none;
+}
+
+.completed__task {
+  background-color: #abbec2;
+}
+
+
+.finish {
+	background-color: #ccc;
+	color: #979fa1;
+}
+
+
+@media only screen and (max-device-width: 1280px){
+	.add {
+		min-width: 0px;
+		font-size: 20px;
+		width: 30%;
+		background-image: none;
+	}
+	.list__task__text {
+		font-size: 20px;
+	}
+	
+}
