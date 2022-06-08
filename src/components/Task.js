@@ -1,30 +1,22 @@
 import React from 'react';
-import styles from './Task.module.css';
-
-
+import styles from '../styles/Task.module.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { addTask, deleteTask, completeTask} from '../store/user/actions';
 
 
 function Task(props) {
-  const { value, deleteTodo, completeTodo } = props;
 
-  const onTextChange = (ev) => {
-    console.log(1)
-    console.log(ev.target.value)
-  }
-
-  const onTextChange2 = (ev) => {
-    ev.preventDefault();
-    //createTodo(value);
-    //setValue('');
-  }
-
-
-
+  const { value } = props;
+  const dispatch = useDispatch()
   const onDelete = () => {
-    deleteTodo(value.key)
+    dispatch(
+      deleteTask(value.key)
+      )
   }
   const onComplete = () => {
-    completeTodo(value.key)
+    dispatch(
+      completeTask(value.key)
+      )
   }
   
   if (!value) {
@@ -41,7 +33,6 @@ function Task(props) {
       </button>
       <label
         className={`${styles.task_text} ${!value.active ? styles.finish : ''}`}
-        onDoubleClick={onTextChange}
       >{value.id}  {value.text}
        
       </label>

@@ -1,10 +1,14 @@
 import {
   TASK_ADD_TASK,
   TASK_DELETE,
-  TASK_GET_LIST,
-  } from './actions';
+  TASK_COMPLETE,
+  FILTER_SORT_PRIORITY
+} from './actions';
 
-const initialState = []
+const initialState = {
+  todos: [],
+  filter: 'All',
+}
 
 
 let id = 1;
@@ -20,25 +24,48 @@ const createTodoTask = (text) => {
 
 const reducer = (state = initialState, action) => {
 
-  switch (action.type){
+  switch (action.type) {
     case TASK_ADD_TASK: {
-      let text = action.task.text
-      console.log(state)
-      return [
+      return {
         ...state,
-        createTodoTask(text)
-      ]
+        todos: [
+          ...state.todos,
+          createTodoTask(action.text)
+        ]
+      }
     }
     case TASK_DELETE:
-      let key = action.key.key
-      console.log(key)
-      const updatedState = state.filter(i => i.key !== key)
-      return [
-        ...updatedState
-      ]
-    case TASK_GET_LIST: {
-      return initialState;
-    }
+      const updatedState = state.todos.filter(i => i.key !== action.key)
+      return {
+        ...state,
+        todos: updatedState
+      }
+    case TASK_COMPLETE:
+      
+
+      const updatedTodoList = state.todos.map((item) => {
+        if (item.key !== action.key) {
+          return item;
+        }
+        return {
+          ...item,
+          active: false
+        }
+      })
+      
+      return {
+        ...state,
+        todos: updatedTodoList
+      }
+
+
+
+    case FILTER_SORT_PRIORITY:
+      return {
+        ...state,
+        filter: action.priority
+      }
+
     default:
       return state;
   }

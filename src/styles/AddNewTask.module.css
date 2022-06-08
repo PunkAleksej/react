@@ -12,7 +12,6 @@
 
 
 .list__task {
-
 	border-radius: 10px;
 	display: flex;
 	width: 100%;
@@ -22,7 +21,6 @@
 
 .list_task_completed {
 	background-color: #42e3bd;
-	background-image: url('ZZZ-check-mark.png');
 	border-radius: 10px;
 	background-size: cover;
 	min-width: 64px;

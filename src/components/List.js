@@ -1,17 +1,16 @@
 import React from 'react';
 import Task from './Task';
+import { useSelector, useDispatch } from 'react-redux';
 
 
 
 
+function List() {
+  const todoState = useSelector((state) => state.todoState)
 
 
-function List(props) {
-  const { value, deleteTodo, completeTodo, headerInfo }  = props;
-  let updatedTodoList
-  
 
-
+/*
   if (headerInfo === 'complete') {
     updatedTodoList = value.filter(i => i.active === false)
   }
@@ -21,14 +20,13 @@ function List(props) {
   if (headerInfo === 'all') {
     updatedTodoList = value
   }
-
+*/
   return (
     <div>
-      {updatedTodoList.map((todo) => {
+      {todoState.todos.map((todo) => {
         return <Task key={todo.id} 
         value={todo} 
-        deleteTodo={deleteTodo} 
-        completeTodo={completeTodo}/>
+        />
       })
       }
     </div>

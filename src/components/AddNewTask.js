@@ -1,50 +1,38 @@
 import React, { useState } from 'react';
-import { store } from '../store';
 import { useSelector, useDispatch } from 'react-redux';
 import { addTask } from '../store/user/actions';
+import styles from '../styles/AddNewTask.module.css';
 
 
+const AddNewTask = (props) => {
 
-const Add = (props) => {
-  const {
-    createTodo,
-  } = props;
-  const dispatch = useDispatch()
   const [value, setValue] = useState('');
 
   const onInputChange = (ev) => {
     setValue(ev.target.value)
   }
-/*
-  const onSubmit = (ev) => {
-    ev.preventDefault();
-    createTodo(value);
-    setValue('');
-  }
-  */
-  const onSubmit = (ev) => {
-    ev.preventDefault();
-    dispatch(
-      addTask({
-        text: value,
-      })
-    )
+  const dispatch = useDispatch()
 
+
+  const onSubmit = (ev) => {
+    ev.preventDefault();
+    if (!(value.trim())) return;
+    dispatch(addTask(value));
     setValue('');
   }
 
 
   return (
-    <form className="list__task" onSubmit={onSubmit}>
+    <form className={styles.list__task} onSubmit={onSubmit}>
       <input
-        className="list__task__text new"
+        className={styles.list__task__text}
         placeholder="Write new task..."
         value={value}
         onChange={onInputChange}
       />
       <button
         type="submit"
-        className="list_task_completed add"
+        className={`${styles.list_task_completed} ${styles.add}`}
       >
         Add Task
       </button>
@@ -56,4 +44,4 @@ const Add = (props) => {
 
 
 
-export default Add;
+export default AddNewTask;

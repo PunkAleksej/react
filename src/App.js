@@ -1,28 +1,43 @@
-import './components/App.css';
-import Add from './components/Add.js';
+import styles from  './styles/AddNewTask.module.css';
+import AddNewTask from './components/AddNewTask.js';
 import List from './components/List.js';
 import Header from './components/Header.js';
-import React, { useState, useEffect } from 'react';
-import { createTodoTask } from './utils/taskCreator';
-import { Provider } from 'react-redux';
-import { store } from './store';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addTask, deleteTask } from './store/user/actions';
-import { completeTodoTask } from './utils/taskComplete';
-import { sortedTodoTask } from './utils/sortedTodoTask';
 
 
 function App() {
-  const [headerInfo, setHeaderInfo] = useState('all');
-  const [taskDataList, setTaskDataList] = useState([]);
-  const dispatch = useDispatch()
 
+
+  return (
+      <div className={styles.container}>
+        <Header  />
+        <AddNewTask />
+        <List />
+      </div>
+  );
+}
+
+export default App;
+
+
+
+
+
+
+
+
+
+  /*
+  const [headerInfo, setHeaderInfo] = useState('all');
 
   console.log(store)
 
   const listSort = (sortPriority) => {
     setHeaderInfo(sortPriority)
   }
+
+  const [taskDataList, setTaskDataList] = useState([]);
 
   const completeTodo = (key) => {
 
@@ -44,52 +59,23 @@ function App() {
 
   const deleteTodo = (key) => {
 
-    const deleteTodo = (key) => {
-      console.log(key)
-      dispatch(
-        deleteTask({
-          key:key,
-        })
+    dispatch(
+      deleteTask(key)
       )
-    } 
+    
     
     deleteTodo(key)
-
-
     const updatedTodoList = taskDataList.filter(i => i.key !== key)
     setTaskDataList(updatedTodoList)
   }
 
 
   const createTodo = (text) => {
-    const addNewTask = (text) => {
-      dispatch(
-        addTask({
-          text: text,
-        })
-      );
-    };
-    addNewTask(text)
-
-
+    
     if (!(text.trim())) return;
-    const newTask = createTodoTask(text)
-    setTaskDataList([...taskDataList, newTask])
+    // const newTask = createTodoTask(text)
+    // setTaskDataList([...taskDataList, newTask])
+    dispatch(addTask(text));
   }
+*/
 
-  return (
-      <div className="container">
-        <Header taskDataList={taskDataList}
-          listSort={listSort} />
-        <Add createTodo={createTodo} />
-        <List
-          value={taskDataList}
-          deleteTodo={deleteTodo}
-          completeTodo={completeTodo}
-          headerInfo={headerInfo}
-        />
-      </div>
-  );
-}
-
-export default App;

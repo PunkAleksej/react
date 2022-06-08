@@ -1,22 +1,27 @@
 import React from 'react';
-import styles from './Header.module.css';
+import styles from '../styles/Header.module.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { sortPriority } from '../store/user/actions';
 
 
 function Header(props) {
-  const { taskDataList, listSort } = props
+  const dispatch = useDispatch()
 
+  const taskDataList = useSelector((state) => state.todoState.todos)
+  
   const completePriority = () => {
-    listSort('complete')
+    dispatch(sortPriority('COMPLETE'))
+
   }
   const activePriority = () => {
-    listSort('active')
+    dispatch(sortPriority('ACTIVE'))
   }
 
   const allPriority = () => {
-    listSort('all')
+    dispatch(sortPriority('ALL'))
   }
 
-
+  
   let active = 0;
   let complete = 0;
   taskDataList.forEach(element => {
