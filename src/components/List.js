@@ -1,26 +1,37 @@
 import React from 'react';
 import Task from './Task';
 import { useSelector, useDispatch } from 'react-redux';
-
-
+import { todosSelector, filterSelector, sortState} from '../utils/sortedTodoTask'
+//import { createSelector } from '@reduxjs/toolkit';
+import { createSelector } from 'reselect';
 
 
 function List() {
   const todoState = useSelector((state) => state.todoState)
 
 
+  const selectTodos = state => state.todoState.todos
+  const selectFilter = state => state.todoState.filter
+
 
 /*
-  if (headerInfo === 'complete') {
-    updatedTodoList = value.filter(i => i.active === false)
+  if (filter === 'COMPLETE') {
+    sortedList =todos.filter(i => i.active === false)
+    return sortedList
   }
-  if (headerInfo === 'active') {
-    updatedTodoList = value.filter(i => i.active === true)
+  if (filter  === 'ACTIVE') {
+    sortedList = todos.filter(i => i.active === true)
+    return sortedList 
   }
-  if (headerInfo === 'all') {
-    updatedTodoList = value
+  if (filter  === 'ALL') {
+    sortedList = todos
+    return sortedList
   }
+
+
 */
+
+
   return (
     <div>
       {todoState.todos.map((todo) => {

@@ -6,6 +6,17 @@ import { sortPriority } from '../store/user/actions';
 
 function Header(props) {
   const dispatch = useDispatch()
+  
+  
+  const filterSelector = state => state.todoState.filter
+  
+  
+
+
+
+
+
+
 
   const taskDataList = useSelector((state) => state.todoState.todos)
   
