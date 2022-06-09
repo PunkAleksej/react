@@ -1,22 +1,20 @@
 import React from 'react';
 import styles from '../styles/Task.module.css';
-import { useSelector, useDispatch } from 'react-redux';
-import { addTask, deleteTask, completeTask} from '../store/user/actions';
+import { useDispatch } from 'react-redux';
+import { deleteTask, completeTask} from '../store/user/actions';
 
 
 function Task(props) {
 
   const { value } = props;
   const dispatch = useDispatch()
+
   const onDelete = () => {
-    dispatch(
-      deleteTask(value.key)
-      )
+    dispatch(deleteTask(value.key))
   }
+
   const onComplete = () => {
-    dispatch(
-      completeTask(value.key)
-      )
+    dispatch(completeTask(value.key))
   }
   
   if (!value) {

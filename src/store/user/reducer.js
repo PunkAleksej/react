@@ -7,7 +7,7 @@ import {
 
 const initialState = {
   todos: [],
-  filter: 'All',
+  filter: 'ALL',
 }
 
 
