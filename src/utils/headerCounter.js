@@ -1,10 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-
-
 const selectTodoList = state => state.todoState.todos;
-
-
 
 function headerButtonCounter (taskDataList) {
 

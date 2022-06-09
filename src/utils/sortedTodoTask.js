@@ -1,4 +1,3 @@
-
 import { createSelector } from 'reselect'
 
 function sortedList (todos, filter) {
