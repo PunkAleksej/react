@@ -10,7 +10,7 @@
 
 .task_completed {
 	background-color: #42e3bd;
-	background-image: url('../img/check-mark.png');
+	background-image: url('../imgs/check-mark.png');
 	border-radius: 10px;
 	background-size: cover;
 	min-width: 64px;
@@ -26,7 +26,7 @@
 }
 .task_delete {
 	background-color: #eb3b64;
-	background-image: url('../img/trash.png');
+	background-image: url('../imgs/trash.png');
 	background-size: cover;
 	border-radius: 10px;
 	min-width: 64px;

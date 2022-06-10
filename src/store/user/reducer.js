@@ -49,7 +49,7 @@ const reducer = (state = initialState, action) => {
         }
         return {
           ...item,
-          active: false
+          active: !item.active
         }
       })
       
